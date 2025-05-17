@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sigmar+One&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #76174d;
+  color: white;
+  overflow-x: hidden;
+}
+
+.background {
+  background: url("assets/background.png") center/cover no-repeat;
+  opacity: 0.5;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.player-container {
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-family: "Sigmar One";
+}
+.video-wrapper {
+  position: relative;
+  border: 8px solid #fff;
+  border-radius: 35px;
+  overflow: hidden;
+  height: 65vh;
+  aspect-ratio: 1.78;
+}
+video {
+  height: 65vh;
+  aspect-ratio: 1.78;
+  display: block;
+}
+.icon-btn {
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.icon-btn img {
+  width: 20px;
+  height: 20px;
+}
+.text-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  color: #000;
+  cursor: pointer;
+}
+.gear-btn{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+.gear-btn img{
+  height: 32px;
+  width: 32px;
+}
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.prev-btn {
+  left: 16px;
+}
+.next-btn {
+  right: 16px;
+}
+.replay-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 70px;
+  height: 70px;
+  background: white;
+  padding: 20px;
+  border-radius: 50%;
+  transform: rotate(0deg);
+}
+.replay-btn img{
+    width: 25px;
+    height: 25px;
+}
+.top-right-group {
+  position: absolute;
+  top: 16px;
+  right: 64px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cc-btn img,
+.en-btn img{
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+.controls {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.control-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+.control-btn img {
+  width: 100%;
+  height: 100%;
+}
+#volume {
+  width: 100px;
+}
+.progress-container {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+.progress {
+  height: 100%;
+  background: #fff;
+  border-radius: 4px;
+  width: 0;
+}
+.waveform {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: url("assets/waveform.svg") center/cover no-repeat;
+  pointer-events: none;
+}
+.time {
+  font-size: 0.9rem;
+  min-width: 90px;
+  text-align: right;
+}
+.dropdown {
+  position: relative;
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+  margin-left: 15px;
+}
+.dropdown .options {
+  display: none;
+  position: absolute;
+  top: 28px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  border-radius: 4px;
+}
+.dropdown .options li {
+  padding: 8px 20px;
+}
+.dropdown .options li.selected {
+  font-weight: bold;
+}
+.dropdown .options li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.timestamps-btn {
+  margin-top: 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.timestamps-btn img{
+  width: 25px;
+}
+.comment-section{
+  margin-top: 75px;
+  z-index: 10;
+  width: 100%;
+  min-height: 100vh;
+  background: white;
+}
+.volumes{
+  position: absolute;
+  left: 16px;
+  bottom: 48px;
+  display: flex;
+  align-items: center;
+}
+.volumes .vol-icon{
+  width: 32px;
+  height: 32px;
+}
+.shadow{
+  width:100%;
+  height: 15vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(#00000000, #000000ff);
+}
+.shadow-top{
+  width:100%;
+  height: 15vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(#111111ff, #00000000);
+}
+.controllers{
+  width:100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  opacity: 0;
+  transition: 1s;
+}
+.controllers:hover{
+  opacity: 1;
+}
