@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom Video Player</title>
+  <link rel="icon" type="image/x-icon" href="/assets/play-icon.svg">
+  <title>Video Player</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -69,7 +70,7 @@
             <img id="play-icon" src="assets/play-icon.svg" alt="Play">
           </button>
           <img src="assets/vol-icon.svg" class="vol-icon" alt="CC">
-          <input id="volume" type="range" min="0" max="1" step="0.05" value="1">
+          <input id="volume" class="volume-slider" type="range" min="0" max="1" step="0.05" value="1">
         </div>
         <div class="controls">
           <div id="progress-container" class="progress-container">
@@ -83,12 +84,12 @@
         </div>
       </div>
     </div>
-    <button id="view-timestamps" class="timestamps-btn">
+    <a id="view-timestamps" class="timestamps-btn" href="#comments">
       View Timestamps
       <img src="assets/dropdown-icon.svg" alt="Dropdown">
-    </button>
+    </a>
   </div>
-  <div class="comment-section">
+  <div class="comment-section" id="comments">
 
   </div>
   <script src="script.js"></script>

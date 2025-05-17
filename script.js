@@ -54,7 +54,7 @@ progressContainer.addEventListener("click", (e) => {
 });
 // Replay
 replayBtn.addEventListener("click", () => {
-  let colors = ["#76174d", "#0E5652", "#521776"];
+  let colors = ["#76174d", "#0E5652", "#521776", "#561E0E", "#0E4556"];
   document.body.style.background =
     colors[parseInt(currAngle/360) % colors.length];
   replayBtn.style.transition = "0.5s";
@@ -125,4 +125,19 @@ window.addEventListener('keydown', (e)=>{
   else if (e.key == "ArrowRight"){
         video.currentTime = Math.min(video.duration, video.currentTime + 10);
   }
+});
+
+const updateVolumeSliderStyle = () => {
+  const value = volumeSlider.value;
+  const percentage = (value - volumeSlider.min) / (volumeSlider.max - volumeSlider.min) * 100;
+  volumeSlider.style.background = `linear-gradient(to right, white 0%, white ${percentage}%, rgba(255,255,255,0.2) ${percentage}%, rgba(255,255,255,0.2) 100%)`;
+};
+
+// Initial style
+updateVolumeSliderStyle();
+
+// Update on input
+volumeSlider.addEventListener('input', () => {
+  video.volume = volumeSlider.value;
+  updateVolumeSliderStyle();
 });
