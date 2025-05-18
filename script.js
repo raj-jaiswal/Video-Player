@@ -12,16 +12,16 @@ const speedOptions = document.getElementById("speed-options");
 const resDisplay = document.getElementById("res-display");
 const resOptions = document.getElementById("res-options");
 const fullscreenBtn = document.getElementById("fullscreen");
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
 
 let currAngle = 0;
 
-prevBtn.addEventListener('click', () => {
+prevBtn.addEventListener("click", () => {
   video.currentTime = Math.max(0, video.currentTime - 10);
 });
 
-nextBtn.addEventListener('click', () => {
+nextBtn.addEventListener("click", () => {
   video.currentTime = Math.min(video.duration, video.currentTime + 10);
 });
 
@@ -56,7 +56,7 @@ progressContainer.addEventListener("click", (e) => {
 replayBtn.addEventListener("click", () => {
   let colors = ["#76174d", "#0E5652", "#521776", "#561E0E", "#0E4556"];
   document.body.style.background =
-    colors[parseInt(currAngle/360) % colors.length];
+    colors[parseInt(currAngle / 360) % colors.length];
   replayBtn.style.transition = "0.5s";
   replayBtn.style.transform = `rotate(${currAngle}deg)`;
   currAngle += 360;
@@ -66,8 +66,7 @@ fullscreenBtn.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     video.parentElement.requestFullscreen();
     video.style.height = "100%";
-  }
-  else {
+  } else {
     document.exitFullscreen();
     video.style.height = "65vh";
   }
@@ -109,8 +108,8 @@ function formatTime(t) {
   return `${m}:${s}`;
 }
 
-window.addEventListener('keydown', (e)=>{
-  if (e.key == ' '){
+window.addEventListener("keydown", (e) => {
+  if (e.key == " ") {
     if (video.paused) {
       video.play();
       playIcon.src = "assets/pause-icon.svg";
@@ -118,18 +117,17 @@ window.addEventListener('keydown', (e)=>{
       video.pause();
       playIcon.src = "assets/play-icon.svg";
     }
-  }
-  else if (e.key == "ArrowLeft"){
-      video.currentTime = Math.max(0, video.currentTime - 10);
-  }
-  else if (e.key == "ArrowRight"){
-        video.currentTime = Math.min(video.duration, video.currentTime + 10);
+  } else if (e.key == "ArrowLeft") {
+    video.currentTime = Math.max(0, video.currentTime - 10);
+  } else if (e.key == "ArrowRight") {
+    video.currentTime = Math.min(video.duration, video.currentTime + 10);
   }
 });
 
 const updateVolumeSliderStyle = () => {
   const value = volumeSlider.value;
-  const percentage = (value - volumeSlider.min) / (volumeSlider.max - volumeSlider.min) * 100;
+  const percentage =
+    ((value - volumeSlider.min) / (volumeSlider.max - volumeSlider.min)) * 100;
   volumeSlider.style.background = `linear-gradient(to right, white 0%, white ${percentage}%, rgba(255,255,255,0.2) ${percentage}%, rgba(255,255,255,0.2) 100%)`;
 };
 
@@ -137,16 +135,16 @@ const updateVolumeSliderStyle = () => {
 updateVolumeSliderStyle();
 
 // Update on input
-volumeSlider.addEventListener('input', () => {
+volumeSlider.addEventListener("input", () => {
   video.volume = volumeSlider.value;
   updateVolumeSliderStyle();
 });
 
-const timestampItems = document.querySelectorAll('.timestamps li');
+const timestampItems = document.querySelectorAll(".timestamps li");
 
-timestampItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const time = parseFloat(item.getAttribute('data-time'));
+timestampItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    const time = parseFloat(item.getAttribute("data-time"));
     if (!isNaN(time)) {
       video.currentTime = time;
       video.play();
@@ -155,17 +153,16 @@ timestampItems.forEach(item => {
 });
 
 function scalePlayerContainer() {
-  const container = document.querySelector('.video-wrapper');
+  const container = document.querySelector(".video-wrapper");
   const screenWidth = window.innerWidth;
   const scaleFactor = screenWidth / 1920;
 
-  if(screenWidth <= 800){
-    container.style.transform = `scale(${1*scaleFactor})`;
-  }
-  else{
+  if (screenWidth <= 800) {
+    container.style.transform = `scale(${1 * scaleFactor})`;
+  } else {
     container.style.transform = `scale(1)`;
   }
 }
 
-window.addEventListener('resize', scalePlayerContainer);
-window.addEventListener('load', scalePlayerContainer);
+window.addEventListener("resize", scalePlayerContainer);
+window.addEventListener("load", scalePlayerContainer);

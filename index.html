@@ -1,132 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/assets/play-icon.svg">
-  <title>Video Player</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="background"></div>
-  <div class="player-container">
-    <h1 class="title">How Plants Work?</h1>
-    <button class="icon-btn replay-btn">
-        <img src="assets/replay-icon.svg" alt="Replay">
-    </button>
-    <div class="video-wrapper">
-      <video id="video" preload="metadata">
-        <source src="assets/Video.mp4" type="video/mp4">
-      </video>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/assets/play-icon.svg" />
+    <title>Video Player</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="player-container" id="top">
+      <h1 class="title">How Plants Work?</h1>
+      <button class="icon-btn replay-btn">
+        <img src="assets/replay-icon.svg" alt="Replay" />
+      </button>
+      <div class="video-wrapper">
+        <video id="video" preload="metadata">
+          <source src="assets/Video.mp4" type="video/mp4" />
+        </video>
 
-      <div class="controllers">
-        <div class="shadow-top"></div>
-        <!-- Top-left gear -->
-        <button class="icon-btn gear-btn">
-          <img src="assets/gear-icon.svg" alt="Settings">
-        </button>
-        <!-- Prev/Next -->
-        <button class="icon-btn nav-btn prev-btn">
-          <img src="assets/previous-icon.svg" alt="Previous">
-        </button>
-        <button class="icon-btn nav-btn next-btn">
-          <img src="assets/next-icon.svg" alt="Next">
-        </button>
-        <!-- CC & EN -->
-        <div class="top-right-group">
-          <button class="icon-btn cc-btn">
-            <img src="assets/cc-icon.svg" alt="CC">
+        <div class="controllers">
+          <div class="shadow-top"></div>
+          <!-- Top-left gear -->
+          <button class="icon-btn gear-btn">
+            <img src="assets/gear-icon.svg" alt="Settings" />
           </button>
-          <button class="icon-btn en-btn">
-            <img src="assets/en-icon.svg" alt="CC">
+          <!-- Prev/Next -->
+          <button class="icon-btn nav-btn prev-btn">
+            <img src="assets/previous-icon.svg" alt="Previous" />
           </button>
-        
-          <div class="dropdown speed">
-              <div style="display: flex; align-items: center;">
+          <button class="icon-btn nav-btn next-btn">
+            <img src="assets/next-icon.svg" alt="Next" />
+          </button>
+          <!-- CC & EN -->
+          <div class="top-right-group">
+            <button class="icon-btn cc-btn">
+              <img src="assets/cc-icon.svg" alt="CC" />
+            </button>
+            <button class="icon-btn en-btn">
+              <img src="assets/en-icon.svg" alt="CC" />
+            </button>
+
+            <div class="dropdown speed">
+              <div style="display: flex; align-items: center">
                 <span id="speed-display">1.0x</span>
-                <img src="assets/dropdown-icon.svg" width="25px" height="25px" alt="Dropdown">
+                <img
+                  src="assets/dropdown-icon.svg"
+                  width="25px"
+                  height="25px"
+                  alt="Dropdown"
+                />
               </div>
               <ul id="speed-options" class="options">
-              <li data-speed="0.5">0.5x</li>
-              <li data-speed="1">1.0x</li>
-              <li data-speed="1.5">1.5x</li>
-              <li data-speed="2">2.0x</li>
+                <li data-speed="0.5">0.5x</li>
+                <li data-speed="1">1.0x</li>
+                <li data-speed="1.5">1.5x</li>
+                <li data-speed="2">2.0x</li>
               </ul>
-          </div>
-          <div class="dropdown resolution">
-              <div style="display: flex; align-items: center;">
+            </div>
+            <div class="dropdown resolution">
+              <div style="display: flex; align-items: center">
                 <span id="res-display">1080p</span>
-                <img src="assets/dropdown-icon.svg" width="25px" height="25px" alt="Dropdown">
+                <img
+                  src="assets/dropdown-icon.svg"
+                  width="25px"
+                  height="25px"
+                  alt="Dropdown"
+                />
               </div>
               <ul id="res-options" class="options">
-              <li data-res="480p">480p</li>
-              <li data-res="720p">720p</li>
-              <li data-res="1080p" class="selected">1080p</li>
+                <li data-res="480p">480p</li>
+                <li data-res="720p">720p</li>
+                <li data-res="1080p" class="selected">1080p</li>
               </ul>
+            </div>
           </div>
-        </div>
 
-        <div class="shadow"></div>
-        <div class="volumes">
-          <button id="play-pause" class="control-btn">
-            <img id="play-icon" src="assets/play-icon.svg" alt="Play">
-          </button>
-          <img src="assets/vol-icon.svg" class="vol-icon" alt="CC">
-          <input id="volume" class="volume-slider" type="range" min="0" max="1" step="0.05" value="1">
-        </div>
-        <div class="controls">
-          <div id="progress-container" class="progress-container">
-            <div id="progress" class="progress"></div>
-            <div class="waveform"></div>
+          <div class="shadow"></div>
+          <div class="volumes">
+            <button id="play-pause" class="control-btn">
+              <img id="play-icon" src="assets/play-icon.svg" alt="Play" />
+            </button>
+            <img src="assets/vol-icon.svg" class="vol-icon" alt="CC" />
+            <input
+              id="volume"
+              class="volume-slider"
+              type="range"
+              min="0"
+              max="1"
+              step="0.05"
+              value="1"
+            />
           </div>
-          <span id="time" class="time">00:00 / 00:00</span>
-          <button id="fullscreen" class="control-btn">
-            <img src="assets/fullscreen-icon.svg" alt="Fullscreen">
-          </button>
+          <div class="controls">
+            <div id="progress-container" class="progress-container">
+              <div id="progress" class="progress"></div>
+              <div class="waveform"></div>
+            </div>
+            <span id="time" class="time">00:00 / 00:00</span>
+            <button id="fullscreen" class="control-btn">
+              <img src="assets/fullscreen-icon.svg" alt="Fullscreen" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <a id="view-timestamps" class="timestamps-btn" href="#comments">
+        View Timestamps
+        <img src="assets/dropdown-icon.svg" alt="Dropdown" />
+      </a>
+    </div>
+    <div class="info-section" id="comments">
+      <div class="info-container">
+        <div class="timestamps">
+          <h3>Timestamps</h3>
+          <ul>
+            <li data-time="0">
+              <a class="timestp" href="#top">00:00</a>
+              <div class="heading">Introduction</div>
+              <div>
+                Lorem ipsum dolor sit amet aliquet habitasse. Ante lobortis
+                auctor interdum class donec hac per neque id.
+              </div>
+            </li>
+            <li data-time="10">
+              <a class="timestp" href="#top">00:10</a>
+              <div class="heading">Key Concept</div>
+              <div>
+                Vel letius arcu scelerisque maecenas tempor montes taciti
+                feugiat. Pede bibendum vestibulum potenti proin nisl in
+                venenatis quam.
+              </div>
+            </li>
+            <li data-time="15">
+              <a class="timestp" href="#top">00:15</a>
+              <div class="heading">Demonstration</div>
+              <div>
+                Morbi nisi fringilla nunc dictumst fames eget ac. Pede massa
+                penatibus faucibus ipsum imperdiet class nunc posuere aliquam.
+              </div>
+            </li>
+            <li data-time="25">
+              <a class="timestp" href="#top">00:25</a>
+              <div class="heading">Summary</div>
+              <div>
+                Accumsan porttitor laoreet aenean imperdiet aliquam vestibulum
+                amet pede. Cubilia non montes aliquam leo consectetur ultrices
+                tortor suspendisse phasellus.
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="recommended">
+          <h3>Recommended Videos</h3>
+          <div class="video-card">
+            <img src="assets/thumb1.png" alt="Video 1 Thumbnail" />
+            <p>Understanding Motion</p>
+          </div>
+          <div class="video-card">
+            <img src="assets/thumb2.png" alt="Video 2 Thumbnail" />
+            <p>Advanced Kinematics</p>
+          </div>
+          <div class="video-card">
+            <img src="assets/thumb3.jpeg" alt="Video 3 Thumbnail" />
+            <p>Problem Solving</p>
+          </div>
         </div>
       </div>
     </div>
-    <a id="view-timestamps" class="timestamps-btn" href="#comments">
-      View Timestamps
-      <img src="assets/dropdown-icon.svg" alt="Dropdown">
-    </a>
-  </div>
-  <div class="info-section" id="comments">
-    <div class="info-container">
-      <div class="timestamps">
-        <h3>Timestamps</h3>
-        <ul>
-          <li data-time="0"><span class="timestp">00:00</span> <div class="heading">Introduction</div>
-            <div>Lorem ipsum dolor sit amet aliquet habitasse. Ante lobortis auctor interdum class donec hac per neque id.</div>
-          </li>
-          <li data-time="10"><span class="timestp">00:10</span> <div class="heading">Key Concept</div>
-            <div>Vel letius arcu scelerisque maecenas tempor montes taciti feugiat. Pede bibendum vestibulum potenti proin nisl in venenatis quam.</div>
-          </li>
-          <li data-time="15"><span class="timestp">00:15</span> <div class="heading">Demonstration</div>
-            <div>Morbi nisi fringilla nunc dictumst fames eget ac. Pede massa penatibus faucibus ipsum imperdiet class nunc posuere aliquam.</div>
-          </li>
-          <li data-time="25"><span class="timestp">00:25</span> <div class="heading">Summary</div>
-            <div>Accumsan porttitor laoreet aenean imperdiet aliquam vestibulum amet pede. Cubilia non montes aliquam leo consectetur ultrices tortor suspendisse phasellus.</div>
-          </li>
-        </ul>
-      </div>
-      <div class="recommended">
-        <h3>Recommended Videos</h3>
-        <div class="video-card">
-          <img src="assets/thumb1.png" alt="Video 1 Thumbnail">
-          <p>Understanding Motion</p>
-        </div>
-        <div class="video-card">
-          <img src="assets/thumb2.png" alt="Video 2 Thumbnail">
-          <p>Advanced Kinematics</p>
-        </div>
-        <div class="video-card">
-          <img src="assets/thumb3.jpeg" alt="Video 3 Thumbnail">
-          <p>Problem Solving</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
