@@ -2,6 +2,8 @@
 
 A sleek and responsive web-based video player built using HTML, CSS, and JavaScript. This project showcases a custom-designed user interface, offering an intuitive and seamless video playback experience directly in your browser.
 
+Preview: <a href="https://raj-jaiswal.github.io/Video-Player/">https://raj-jaiswal.github.io/Video-Player/</a>
+
 ![Video Player Screenshot](assets/screenshot.png)
 
 ## 🌟 Features
@@ -42,6 +44,10 @@ Open the project folder in VS Code.
 Right-click on index.html and select "Open with Live Server".
 
 ## 🖼️ UI Overview
+Proposed UI: 
+
+![Video Player UI](assets/UI.png)
+
 The video player features a minimalist and user-friendly interface:
 
 Play/Pause Button: Toggle video playback.
@@ -54,6 +60,9 @@ Fullscreen Toggle: Enter or exit fullscreen mode.
 
 Responsive Layout: Adapts seamlessly to various screen sizes.
 
+### Missing Elements
+1. Wave Animation in Progress Bar
+2. Timestamp Indicators in Timeline
 
 ## 🛠️ Technologies Used
 HTML5: Markup structure
