@@ -23,6 +23,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
 }
 .player-container {
   max-width: 900px;
@@ -170,7 +171,7 @@ video {
   left: 0;
   right: 0;
   height: 16px;
-  background: url("assets/waveform.svg") center/cover no-repeat;
+  /* background: url("assets/waveform.svg") center/cover no-repeat; */
   pointer-events: none;
 }
 .time {
@@ -322,4 +323,86 @@ video {
   background: white;
   height: 6px;
   border-radius: 3px;
+}
+
+.info-section {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 40px;
+  color: black;
+  gap: 40px;
+  background: white;
+  z-index: 50;
+}
+
+.timestamps {
+  flex: 2;
+  margin-right: 50px;
+  padding: 10px;
+}
+
+.timestamps h3,
+.recommended h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 4px;
+}
+
+.timestamps ul {
+  list-style: none;
+  padding: 0;
+}
+
+.timestamps li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.timestamps .heading{
+  font-weight: 700;
+}
+
+.timestp {
+  font-weight: bold;
+  color: #76174d;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.recommended {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.video-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.video-card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.video-card img {
+  width: 120px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.video-card p {
+  margin: 0;
+  font-size: 15px;
 }

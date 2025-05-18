@@ -141,3 +141,15 @@ volumeSlider.addEventListener('input', () => {
   video.volume = volumeSlider.value;
   updateVolumeSliderStyle();
 });
+
+const timestampItems = document.querySelectorAll('.timestamps li');
+
+timestampItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const time = parseFloat(item.getAttribute('data-time'));
+    if (!isNaN(time)) {
+      video.currentTime = time;
+      video.play();
+    }
+  });
+});
