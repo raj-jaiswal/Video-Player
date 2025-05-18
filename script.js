@@ -164,5 +164,4 @@ function scalePlayerContainer() {
   }
 }
 
-window.addEventListener("resize", scalePlayerContainer);
 window.addEventListener("load", scalePlayerContainer);
