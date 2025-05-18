@@ -13,6 +13,7 @@ body {
   background: #76174d;
   color: white;
   overflow-x: hidden;
+  width:100vw;
 }
 
 .background {
@@ -46,11 +47,13 @@ body {
   overflow: hidden;
   height: 65vh;
   aspect-ratio: 1.78;
+  transform-origin: center;
 }
 video {
   height: 65vh;
   aspect-ratio: 1.78;
   display: block;
+  object-fit: contain;
 }
 .icon-btn {
   background: rgba(255, 255, 255, 0);
@@ -405,4 +408,23 @@ video {
 .video-card p {
   margin: 0;
   font-size: 15px;
+}
+
+.info-container{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-direction: row;
+  width: 70vw;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .player-container{
+    height: 100vh;
+  }
+
+  .info-container{
+    flex-direction: column;
+  }
 }

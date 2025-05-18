@@ -153,3 +153,19 @@ timestampItems.forEach(item => {
     }
   });
 });
+
+function scalePlayerContainer() {
+  const container = document.querySelector('.video-wrapper');
+  const screenWidth = window.innerWidth;
+  const scaleFactor = screenWidth / 1920;
+
+  if(screenWidth <= 800){
+    container.style.transform = `scale(${1*scaleFactor})`;
+  }
+  else{
+    container.style.transform = `scale(1)`;
+  }
+}
+
+window.addEventListener('resize', scalePlayerContainer);
+window.addEventListener('load', scalePlayerContainer);

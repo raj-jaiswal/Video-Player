@@ -15,7 +15,9 @@
         <img src="assets/replay-icon.svg" alt="Replay">
     </button>
     <div class="video-wrapper">
-      <video id="video" src="assets/Video.mp4" preload="metadata"></video>
+      <video id="video" preload="metadata">
+        <source src="assets/Video.mp4" type="video/mp4">
+      </video>
 
       <div class="controllers">
         <div class="shadow-top"></div>
@@ -90,7 +92,7 @@
     </a>
   </div>
   <div class="info-section" id="comments">
-    <div style="display: flex; align-items: center; justify-content: center; width: 70vw;">
+    <div class="info-container">
       <div class="timestamps">
         <h3>Timestamps</h3>
         <ul>
